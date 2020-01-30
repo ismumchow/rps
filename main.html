@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock, Paper & Scissors!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid center">
+        <div class="container">
+            <h1 class="display-4">Rock,Paper & Scissors</h1>
+            <p class="lead">Press "R", "P" or "S" to start!</p>
+        </div>
+    </div>
+    <div id ="game">
+        <div class="row">
+            <div class="col border">
+            <h3 > Wins : <span id="win">  </span> </h3>
+            </div>
+            <div class="col border">
+                <h3> Losses : <span id="win"> </span> </h3>
+            </div>
+            <div class="col border">
+                <h3> Ties : <span id="win"> </span> </h3>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"> 
+
+    var computerChoices = ["r", "p", "s"]
+
+    var wins = 0, 
+        losses = 0, 
+        ties = 0; 
+
+   
+
+    document.onkeyup = function (event) {
+        var userGuess = event.key;
+
+         var compChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        //make sure you can only input r p and s
+        if((userGuess ==="p")|| (userGuess === "r") || (userGuess === "s")) {
+
+            if ((userGuess === "p") && (compChoice === "r")) {
+                wins++;
+            }
+            else if ((userGuess === "r") && (compChoice === "r")) {
+                ties++;
+            }
+            else if ((userGuess === "s") && (compChoice === "r")) {
+                losses++;
+            }
+            else if ((userGuess === "p") && (compChoice === "s")) {
+                losses++;
+            }
+            else if ((userGuess === "r") && (compChoice === "s")) {
+                wins++;
+            }
+            else if ((userGuess === "s") && (compChoice === "s")) {
+                ties++;
+            }
+             else if ((userGuess === "p") && (compChoice === "p")) {
+                ties++;
+            }
+            else if ((userGuess === "r") && (compChoice === "p")) {
+                losses++;
+            }
+            else if ((userGuess === "s") && (compChoice === "p")) {
+                win++;
+            }
+              var html =
+                "<p> You chose: " + userGuess + "</p>" +
+                "<p> The computer chose: " + compChoice + "</p>" +
+                "<p> Total Wins: " + wins + "</p>" +
+                "<p> Total Losses: " + losses + "</p>" +
+                "<p> Total Ties: " + ties + "</p>";
+
+            document.getElementById("game").innerHTML = html; 
+    }
+    else {
+        alert("Please pick a key that is either p,r or s")
+        }
+    }
+
+
+
+    
+
+   // alert(compChoice);
+
+    // get computer choice through random function 
+
+    
+    //create an array that lists out all of the options (rock,paper and scissors)
+
+    //var computerChoices = ["r", "p", "s"]
+
+    //creating variables to hold the number of wins losses and ties
+    //they start at 0
+    
+    
+    
+    </script>
+</body>
+</html>
